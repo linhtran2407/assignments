@@ -28,8 +28,10 @@ void buySnack(struct snack snacksArray[], double money, int snackIndex)
 
 int main()
 {
+  const int SIZE = 3; // size of snack bar
+
   // initialize 3 snacks
-  struct snack snacksArray[3] = {
+  struct snack snacksArray[SIZE] = {
       {"Bimbim oishi", 4.5, 4},
       {"Pho ko hanh", 15.5, 6},
       {"Bun bo hue", 20.5, 0}};
@@ -41,7 +43,7 @@ int main()
   printf("Your money: $%.1f\n", money);
 
   // print the snack bar
-  for (int i = 0; i < 3; i++)
+  for (int i = 0; i < SIZE; i++)
   {
     struct snack currentSnack = snacksArray[i];
     printf("%i) %s\t\t cost: $%.1f\t quantity: %i\n", i, currentSnack.foodName, currentSnack.cost, currentSnack.quantity);
@@ -53,7 +55,7 @@ int main()
   scanf("%i", &choice);
 
   // check for valid choice and handle purchase request
-  if (choice != 0 && choice != 1 && choice != 2)
+  if (choice < 0 || choice > SIZE)
   {
     printf("Invalid choice of snack.\n");
   }
