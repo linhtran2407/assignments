@@ -76,6 +76,7 @@ int main()
   printf("Welcome to Rock, Paper, Scissors!\nHow many rounds do you want to play? ");
   int numRounds;
   scanf("%i", &numRounds);
+
   // play with the given number of rounds
   play(numRounds);
 
