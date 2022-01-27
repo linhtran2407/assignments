@@ -19,6 +19,7 @@ void play(int numRounds)
     int AIChoiceIndex = rand() % 3;
     printf("AI chose %s\n", choices[AIChoiceIndex]);
 
+    // compare human choice with 3 choices
     chooseRock = strcmp(humanChoice, "rock");
     choosePaper = strcmp(humanChoice, "paper");
     chooseScissor = strcmp(humanChoice, "scissors");
