@@ -4,8 +4,7 @@ hello : hello.c
 fortune: fortune.c
 	gcc fortune.c -o fortune
 
-compileAll: hello.c fortune.c
-	for file in $(ls *.c); do echo gcc $(file); done
+all: hello fortune
 
 clean :
 	rm hello
