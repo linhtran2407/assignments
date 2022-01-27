@@ -9,6 +9,7 @@ int main()
 
   int n = strlen(input);
 
+  // replace char to get bad password
   for (int i = 0; i < n; i++)
   {
     if (input[i] == 'e')
