@@ -7,7 +7,7 @@ struct snack
   int quantity;
 };
 
-// take in index of snack to make purchase request, handle the request
+// handle purchase request
 void buySnack(struct snack snacksArray[], double money, int snackIndex)
 {
   struct snack chosenSnack = snacksArray[snackIndex];
@@ -36,8 +36,8 @@ int main()
       {"Pho ko hanh", 15.5, 6},
       {"Bun bo hue", 20.5, 0}};
 
-  // ask money input
   printf("Welcome to Linh's Snack Bar.\nHow much money do you have? ");
+  // take money input
   double money;
   scanf("%lf", &money);
   printf("Your money: $%.1f\n", money);
