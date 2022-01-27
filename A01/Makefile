@@ -4,6 +4,8 @@ snackbar : snackbar.c
 password : password.c
 	gcc password.c -o password
 
+all: snackbar password rpc
+
 rpc : rpc.c
 	gcc rpc.c -o rpc
 
