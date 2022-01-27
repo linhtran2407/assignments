@@ -3,7 +3,7 @@
 
 int main()
 {
-  char input[20];
+  char input[128];
   printf("Enter a word: ");
   scanf("%s", input);
 
