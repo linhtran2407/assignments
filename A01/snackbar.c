@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#define SIZE 3
 struct snack
 {
   char foodName[64];
@@ -28,8 +28,6 @@ void buySnack(struct snack snacksArray[], double money, int snackIndex)
 
 int main()
 {
-  const int SIZE = 3; // size of snack bar
-
   // initialize 3 snacks
   struct snack snacksArray[SIZE] = {
       {"Bimbim oishi", 4.5, 4},
