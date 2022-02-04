@@ -13,7 +13,7 @@ int main() {
   printf("Enter a count: ");
   scanf("%d", &n);
 
-  char *output = malloc(sizeof(char)*strlen(s)*n + 1);
+  char *output = malloc(sizeof(char)*(strlen(s)*n + 1));
 
   // check if malloc is successful
   if (output == NULL) {

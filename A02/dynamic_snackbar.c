@@ -29,9 +29,9 @@ int main() {
     exit(1);
   }
 
-    char name[32];
-    float cost;
-    int quantity;
+  char name[32];
+  float cost;
+  int quantity;
 
   // create each snack item and add to the bar
   for (int i = 0; i < numSnacks; i++) {
@@ -39,7 +39,7 @@ int main() {
     scanf("%s", name);
     
     printf("Enter a cost: ");
-    scanf("%f", &cost);
+    scanf("%g", &cost);
 
     printf("Enter a quantity: ");
     scanf("%d", &quantity);
