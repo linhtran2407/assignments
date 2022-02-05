@@ -36,13 +36,13 @@ int main() {
   // create each snack item and add to the bar
   for (int i = 0; i < numSnacks; i++) {
     printf("Enter a name: ");
-    scanf("%s", name);
+    scanf(" %s", name);
     
     printf("Enter a cost: ");
-    scanf("%g", &cost);
+    scanf(" %g", &cost);
 
     printf("Enter a quantity: ");
-    scanf("%d", &quantity);
+    scanf(" %d", &quantity);
 
     struct snack newSnack = create (name, cost, quantity);
     snacks[i] = newSnack;

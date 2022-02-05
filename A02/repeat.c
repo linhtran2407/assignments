@@ -9,9 +9,9 @@ int main() {
   int n; // number of repetitions
 
   printf("Enter a word: ");
-  scanf("%s", s);
+  scanf(" %s", s);
   printf("Enter a count: ");
-  scanf("%d", &n);
+  scanf(" %d", &n);
 
   char *output = malloc(sizeof(char)* (strlen(s) * n + 1));
 
