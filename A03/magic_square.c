@@ -89,7 +89,7 @@ int main(int argc, char *argv[]) {
 
 
     // check if matrix is magical
-    int* constantSum = &matrix[0][0];
+    int* constantSum = malloc(sizeof(int));
     
     int ret = checkSum(matrix, nRows, nCols, constantSum);
     if(ret == 1) {
@@ -104,6 +104,8 @@ int main(int argc, char *argv[]) {
     free(matrix);
     matrix = NULL;
 
+    free(constantSum);
+    constantSum = NULL;
     return 0;
 }
 
