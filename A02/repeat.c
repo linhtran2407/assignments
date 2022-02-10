@@ -21,12 +21,14 @@ int main() {
     exit(1);
   }
 
+  
+  memset(output, 0, sizeof(char)* (strlen(s) * n + 1));
   // create output
   for (int i = 0; i < n; i++) {
     strcat(output, s);
   }
 
-// ??? memset
+
   printf("Your word is: %s \n", output);
 
   free(output);
