@@ -31,14 +31,16 @@ struct snack* insert_sorted(struct snack* snacks, const char* name, int quantity
   strcpy(newSnack->name, name);
   newSnack->quantity = quantity;
   newSnack->cost = cost;
-
+  newSnack->next = NULL;
+  
   if (snacks == NULL) {
     return newSnack;
   }
 
   // insertion sort
   struct snack* prevSnack = NULL;
-  for (struct snack* snack = snacks; snack != NULL; snack = snack->next) {
+  struct snack* snack = snacks;
+  while (snack != NULL) {
     int ret = strcmp(name, snack->name);
     if (ret < 0) {
       // insert new snack before the current snack
@@ -53,6 +55,7 @@ struct snack* insert_sorted(struct snack* snacks, const char* name, int quantity
     }
     
     prevSnack = snack;
+    snack = snack->next;
   }
 
   prevSnack->next = newSnack;
@@ -63,10 +66,11 @@ struct snack* insert_sorted(struct snack* snacks, const char* name, int quantity
 // Delete (e.g. free) all nodes in the given list of snacks
 // Param snacks: the first node in the list (NULL if empty)
 void clear(struct snack* snacks) {
-  for (struct snack* n = snacks; n != NULL; n = n->next) {
-    printf("Clear: %-32s\t\t cost: $%-8.2f\t quantity: %-8i\n", n->name,n->cost, n->quantity);
+  struct snack* n = snacks;
+  while (n != NULL) {
+    struct snack* temp = n->next;
     free(n);
-    n = NULL;
+    n = temp;
   }
 }
 
@@ -74,8 +78,9 @@ void print(struct snack* snacks) {
   printf("Welcome to Linh's Snack Bar.\n");
   
   int i = 0;
-  for (struct snack* n = snacks; n != NULL; n = n->next) {
-      printf("%i) %-15s\t\t cost: $%-4.2f\t quantity: %-4i\n", i++, n->name,n->cost, n->quantity);
+  while (snacks != NULL) {
+      printf("%i) %-15s\t\t cost: $%-4.2f\t quantity: %-4i\n", i++, snacks->name,snacks->cost, snacks->quantity);
+      snacks = snacks->next;
   }
 }
 

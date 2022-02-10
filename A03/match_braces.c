@@ -2,7 +2,7 @@
 // match_braces.c 
 // CS223 - Spring 2022
 // Identify matched braces from a given file
-// Name:
+// Name: Linh Tran
 //
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,6 +22,7 @@ struct node {
 // Param top: the top node of the stack (NULL if empty)
 // Returns the new top of the stack
 struct node* push(char sym, int line, int col, struct node* top) {
+
   return NULL;
 }
 
@@ -43,5 +44,34 @@ void print(struct node* top) {
 }
 
 int main(int argc, char* argv[]) {
+  if (argc != 2) {
+    printf("usage: %s\n", argv[0]);
+    exit(1);
+  }
+
+  FILE* infile = NULL;
+
+  fclose(infile);
+  infile = fopen(argv[1], "r");
+  // check if file has been read
+  if (infile == NULL) {
+    printf("Error: unable to open file");
+    exit(1);
+  }
+
+  do {
+        char c = fgetc(infile);
+ 
+        // Checking for end of file
+        if (feof(infile)) { break; }
+ 
+        printf("%c", c);
+
+        if (c == '\n') {
+          printf("\n");
+        }
+  } while(1);
+
+
   return 0;
 }
