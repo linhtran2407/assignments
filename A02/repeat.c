@@ -26,6 +26,7 @@ int main() {
     strcat(output, s);
   }
 
+// ??? memset
   printf("Your word is: %s \n", output);
 
   free(output);

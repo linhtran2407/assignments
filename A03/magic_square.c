@@ -68,8 +68,17 @@ int main(int argc, char *argv[]) {
     scanf(" %d", &nCols);
 
     int** matrix = malloc( sizeof(int*) * nRows);
+    if (matrix == NULL) {
+        printf("Cannot allocate new array. Exiting...\n");
+        exit(1);
+    }
+
     for (int i = 0; i < nRows; i++) {
         matrix[i] = malloc(sizeof(int) * nCols);
+        if (matrix[i] == NULL) {
+            printf("Cannot allocate new row. Exiting...\n");
+            exit(1);
+        }
     }
 
     // populate matrix
@@ -91,11 +100,16 @@ int main(int argc, char *argv[]) {
     // check if matrix is magical
     int* constantSum = malloc(sizeof(int));
     
+    if (constantSum == NULL) {
+        printf("Cannot allocate new int. Exiting...\n");
+        exit(1);
+    }
+
     int ret = checkSum(matrix, nRows, nCols, constantSum);
     if(ret == 1) {
         printf("M is a magic square (magic constant = %d)\n", *constantSum); 
     } else {
-        printf("M is NOT a magic square!");
+        printf("M is NOT a magic square!\n");
     } 
 
     for (int i = 0; i < nRows; i++) {
