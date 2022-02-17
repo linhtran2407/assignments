@@ -39,18 +39,8 @@ struct ppm_pixel* read_ppm(const char* filename, int* w, int* h) {
   int index = 0;
   // read the 2D raster
   while (fscanf(infile, " %hhu %hhu %hhu", &r, &g, &b) == 3) {
-      // printf("%hhu %hhu %hhu\n", r, g, b);
       struct ppm_pixel pixel = {r, g, b};
       pixels[index++] = pixel;
-  }
-
-  // print struct ppm_pixel
-  for (int i = 0; i < *h; i++) {
-    for (int j = 0; j < *w; j++) {
-      struct ppm_pixel currPixel = pixels[i* (*w) + j];
-      printf("(%hhu,%hhu,%hhu) ", currPixel.red, currPixel.green, currPixel.blue);
-    }
-    printf("\n");
   }
   
   fclose(infile);
