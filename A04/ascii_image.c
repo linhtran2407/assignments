@@ -4,6 +4,7 @@
 
 int main(int argc, char** argv) {
     if (argc != 2) {
+    printf("Invalid runtime arguments");
     exit(1);
   }
 
@@ -15,6 +16,7 @@ int main(int argc, char** argv) {
     exit(1);
   }
 
+  printf("Reading %s with width %d and height %d\n", argv[1], w, h);
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
       struct ppm_pixel currPixel = pixels[i*w + j];
@@ -31,7 +33,7 @@ int main(int argc, char** argv) {
         printf("o");
       } else if (avgIntensity >= 126 && avgIntensity <= 150) { 
         printf(";");
-      } else if (avgIntensity >= 141 && avgIntensity <= 175) { 
+      } else if (avgIntensity >= 151 && avgIntensity <= 175) { 
         printf(":");
       } else if (avgIntensity >= 176 && avgIntensity <= 200) { 
         printf(",");

@@ -5,6 +5,7 @@
 
 int main(int argc, char* argv[]) {
   if (argc != 2) {
+    printf("Invalid runtime arguments");
     exit(1);
   }
 
@@ -17,6 +18,7 @@ int main(int argc, char* argv[]) {
   }
   
   // print struct ppm_pixel
+  printf("Testing file %s: %d %d\n", argv[1], w, h);
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
       struct ppm_pixel currPixel = pixels[i*w + j];

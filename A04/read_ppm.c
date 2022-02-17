@@ -24,9 +24,8 @@ struct ppm_pixel* read_ppm(const char* filename, int* w, int* h) {
 
   *w = atoi(&currentLine[0]);
   *h = atoi(&currentLine[2]);
-  printf("Testing file %s: %d %d\n", filename, *w, *h);
 
-  // skip the line of maximum color value - we can assume it's 1 byte
+  // skip the line of maximum color value - assume it's 1 byte
   fgets(currentLine, 300, infile);
 
   struct ppm_pixel *pixels = malloc(sizeof(struct ppm_pixel) * (*w) * (*h));
@@ -46,7 +45,5 @@ struct ppm_pixel* read_ppm(const char* filename, int* w, int* h) {
   fclose(infile);
 
   return pixels;
-
-
 }
 
