@@ -2,6 +2,18 @@
 #include <math.h>
 #include<stdlib.h>
 
+// avoid using math.h because that requires
+// linking to math library when compile
+int calcPower (int base, int exp) {
+  int res = 1;
+  while (exp > 0) {
+    res *= base;
+    --exp;
+  }
+  
+  return res;
+}
+
 int main() {
   char digits[9];
   printf("Enter 8 bits: \n");
@@ -12,7 +24,7 @@ int main() {
   int decVal = 0;
   for (int i = 0; i < 8; i++, exp--) {
     if (digits[i] == '1') {
-      decVal += pow(2, exp);
+      decVal += calcPower(2, exp);
     }
   }
 
