@@ -6,7 +6,7 @@
 struct ppm_pixel* read_ppm(const char* filename, int* w, int* h) {
   FILE* infile = NULL;
 
-  infile = fopen(filename, "r");
+  infile = fopen(filename, "rb");
   if (infile == NULL) {
     printf("Error: unable to open file");
     return NULL;
@@ -34,13 +34,7 @@ struct ppm_pixel* read_ppm(const char* filename, int* w, int* h) {
     return NULL;
   }
 
-  unsigned char r, g, b;
-  int index = 0;
-  // read the 2D raster
-  while (fscanf(infile, " %hhu %hhu %hhu", &r, &g, &b) == 3) {
-      struct ppm_pixel pixel = {r, g, b};
-      pixels[index++] = pixel;
-  }
+  fread(pixels, sizeof(struct ppm_pixel) * (*w) * (*h), (*w) * (*h), infile);
   
   fclose(infile);
 
