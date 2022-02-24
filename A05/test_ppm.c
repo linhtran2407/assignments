@@ -3,7 +3,7 @@
 #include <string.h>
 #include "read_ppm.h"
 
-int main(int argc, char** argv) {\
+int main(int argc, char** argv) {
   if (argc != 2) {
     printf("Invalid runtime arguments");
     exit(1);
