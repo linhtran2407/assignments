@@ -2,6 +2,7 @@
 #include "read_ppm.h"
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char** argv) {
   if (argc != 2) {
@@ -17,34 +18,33 @@ int main(int argc, char** argv) {
     exit(1);
   }
 
+  // create filename for the glitch image
+  char glitchFileName[128] = "";
+  for (int i = 0; i < strlen(argv[1]); i++) {
+    if (argv[1][i] == '.') {
+      break;
+    }
+    glitchFileName[i] = argv[1][i];
+  }
+
+  strcat(glitchFileName, "-glitch.ppm");
+
   printf("Reading %s with width %d and height %d\n", argv[1], w, h);
+  printf("Writing file %s\n", glitchFileName);
 
   // implement glitch
   srand(time(0));
-
-  // printf("Initial color %s: %d %d\n", argv[1], w, h);
-  // for (int i = 0; i < h; i++) {
-  //   for (int j = 0; j < w; j++) {
-  //     struct ppm_pixel currPixel = pixels[i*w + j];
-  //     printf("(%hhu,%hhu,%hhu) ", currPixel.red, currPixel.green, currPixel.blue);
-  //   }
-  //   printf("\n");
-  // }
-  
-  // printf("\nTesting shift %s: %d %d\n", argv[1], w, h);
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
       struct ppm_pixel currPixel = pixels[i*w + j];
       for (int k = 0; k < 3; k++) {
-        currPixel.colors[k] = currPixel.colors[k] << (rand() % 3);
+        currPixel.colors[k] = currPixel.colors[k] << (rand() % 2);
       }
       pixels[i*w + j] = currPixel;
-      // printf("(%hhu,%hhu,%hhu) ", currPixel.red, currPixel.green, currPixel.blue);
     }
-    // printf("\n");
   }
 
-  write_ppm("test.ppm", pixels, w, h);
+  write_ppm(glitchFileName, pixels, w, h);
 
   free(pixels);
   pixels = NULL;
