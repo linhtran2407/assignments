@@ -17,10 +17,12 @@ float* readvector(const char* filename, int *size) {
   *size = atoi(buf);
 
   float *vector = malloc(sizeof(float) * (*size));
-  int i = 0;
-  while (fgets(buf, 33, infile) != NULL) {
-    vector[i++] = (float) atoll(buf);
+  
+  for (int i = 0; i < (*size); i++) {
+    fgets(buf, 33, infile);
+    vector[i] = (float) atof(buf);
   }
+
 
   fclose(infile);
   return vector;
@@ -32,6 +34,8 @@ int main(int argc, char** argv) {
     exit(0);
   }
 
+  // ! my partner pushed the code, not me
+
   int size = 0;
   float* vector = readvector(argv[1], &size);
 
@@ -41,6 +45,7 @@ int main(int argc, char** argv) {
   }
 
   free(vector);
+  vector = NULL;
   return 0;
 }
 
