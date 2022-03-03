@@ -4,16 +4,16 @@
 #include "read_ppm.h"
 
 // divided the decoded bits into each block of 8 digits and convert from binary to ascii var
-void genResult (int index, int* decodedBits) {  
-  printf("Max number of characters in the image %d \n", (index /8));
-  char *result = malloc(index / 8 + 1);  
-  if (result == NULL) {
-    printf("Cannot allocate space for result\n");
-    exit(1);
-  }
+void genResult (int* index, int* decodedBits) {  
+  printf("Max number of characters in the image %d \n", (*index /8));
+  // char *result = malloc(*index / 8 + 1);  
+  // if (result == NULL) {
+  //   printf("Cannot allocate space for result\n");
+  //   exit(1);
+  // }
 
   int counter = 0, resIndex = 0;
-  while (counter < index) {
+  while (counter < *index) {
     int decVal = 0;
     for (int i = 0; i < 8; i++) {
       if (decodedBits[counter] == 1) {
@@ -21,13 +21,12 @@ void genResult (int index, int* decodedBits) {
       }
       counter++;
     }
-    result[resIndex] = (char) decVal;
-    printf("%c", result[resIndex]);
+    printf("%c", (char) decVal);
     resIndex++;
   }
 
-  free(result);
-  result = NULL;
+  // free(result);
+  // result = NULL;
 }
 
 int main(int argc, char** argv) {
@@ -62,8 +61,33 @@ int main(int argc, char** argv) {
     }
   }
 
+  // int count = 0; // count length of decodedBits
+  // int decVal = 0;
+  // int line = 0;
+  // unsigned int mask = 0x1;
+
+  // for (int i = 0; i < h; i++) {
+  //   for (int j = 0; j < w; j++) {
+  //     for (int k = 0; k < 3; k++) {
+  //       int decodedBit = mask & pixels[i*w + j].colors[k];
+  //       if (decodedBit == 1) {
+  //         decVal += (1 << (7 - count));
+  //       }
+  //       count++;
+  //       if (count == 8) {
+  //         if (decVal < 127) {
+  //           if (decVal == 10) { printf ("line %d: ", line++);}
+  //          printf("%c", (char) decVal);
+  //         }
+  //         decVal = 0;
+  //         count = 0;
+  //       }
+  //     }
+  //   }
+  // }
+
   printf("Reading %s with width %d and height %d\n", argv[1], w, h);
-  genResult(index, decodedBits);
+  genResult(&index, decodedBits);
 
   free(pixels);
   pixels = NULL;
