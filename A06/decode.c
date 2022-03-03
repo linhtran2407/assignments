@@ -3,17 +3,18 @@
 #include <stdlib.h>
 #include "read_ppm.h"
 
-// divided the decoded bits into each block of 8 digits and convert from binary to ascii var
-void genResult (int* index, int* decodedBits) {  
-  printf("Max number of characters in the image %d \n", (*index /8));
+// convert each block of 8 digits to ascii var
+void genResult (int* numBits, int* decodedBits) {  
+  printf("Max number of characters in the image %d \n", (*numBits /8));
   // char *result = malloc(*index / 8 + 1);  
   // if (result == NULL) {
   //   printf("Cannot allocate space for result\n");
   //   exit(1);
   // }
+  // int resIndex = 0;
 
-  int counter = 0, resIndex = 0;
-  while (counter < *index) {
+  int counter = 0; 
+  while (counter < *numBits) {
     int decVal = 0;
     for (int i = 0; i < 8; i++) {
       if (decodedBits[counter] == 1) {
@@ -22,7 +23,7 @@ void genResult (int* index, int* decodedBits) {
       counter++;
     }
     printf("%c", (char) decVal);
-    resIndex++;
+    // resIndex++;
   }
 
   // free(result);
@@ -49,14 +50,14 @@ int main(int argc, char** argv) {
     exit(1);
   }
 
-  int index = 0; // count length of decodedBits
+  int numBits = 0; // count length of decodedBits
   unsigned int mask = 0x1;
 
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
       struct ppm_pixel currPixel = pixels[i*w + j];
       for (int k = 0; k < 3; k++) {
-        decodedBits[index++] = mask & currPixel.colors[k];
+        decodedBits[numBits++] = mask & currPixel.colors[k];
       }
     }
   }
@@ -87,7 +88,7 @@ int main(int argc, char** argv) {
   // }
 
   printf("Reading %s with width %d and height %d\n", argv[1], w, h);
-  genResult(&index, decodedBits);
+  genResult(&numBits, decodedBits);
 
   free(pixels);
   pixels = NULL;
