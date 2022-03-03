@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
 
   printf("Reading %s with width %d and height %d\n", argv[1], w, h);
   printf("Max number of characters in the image %d \n", ((w*h*3) /8));
-  char *message = malloc(sizeof(int) * (w*h*3));
+  char *message = malloc(w*h*3);
   if (message == NULL) {
     printf("Cannot allocate space for message\n");
     exit(1);
