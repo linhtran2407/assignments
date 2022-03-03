@@ -3,31 +3,14 @@
 #include <stdlib.h>
 #include "read_ppm.h"
 
-// convert each block of 8 digits to ascii var
-void genResult (int* numBits, int* decodedBits) {  
-  printf("Max number of characters in the image %d \n", (*numBits /8));
-  // char *result = malloc(*index / 8 + 1);  
-  // if (result == NULL) {
-  //   printf("Cannot allocate space for result\n");
-  //   exit(1);
-  // }
-  // int resIndex = 0;
-
-  int counter = 0; 
-  while (counter < *numBits) {
-    int decVal = 0;
-    for (int i = 0; i < 8; i++) {
-      if (decodedBits[counter] == 1) {
-        decVal += (1 << (7 - i));
-      }
-      counter++;
-    }
-    printf("%c", (char) decVal);
-    // resIndex++;
+int calcPower (int base, int exp) {
+  int res = 1;
+  while (exp > 0) {
+    res *= base;
+    --exp;
   }
-
-  // free(result);
-  // result = NULL;
+  
+  return res;
 }
 
 int main(int argc, char** argv) {
@@ -44,56 +27,44 @@ int main(int argc, char** argv) {
     exit(1);
   }
 
-  int *decodedBits = malloc(sizeof(int) * (w) * (h) * 3);
-  if (decodedBits == NULL) {
-    printf("Cannot allocate space for decodedBits\n");
+  printf("Reading %s with width %d and height %d\n", argv[1], w, h);
+  printf("Max number of characters in the image %d \n", ((w*h*3) /8));
+  char *message = malloc(sizeof(int) * (w*h*3));
+  if (message == NULL) {
+    printf("Cannot allocate space for message\n");
     exit(1);
   }
 
-  int numBits = 0; // count length of decodedBits
+  int messIndex = 0, decVal = 0, bitCounter = 0, exp = 7; 
   unsigned int mask = 0x1;
 
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
-      struct ppm_pixel currPixel = pixels[i*w + j];
       for (int k = 0; k < 3; k++) {
-        decodedBits[numBits++] = mask & currPixel.colors[k];
+        int decodedBit = mask & pixels[i*w + j].colors[k];
+        bitCounter++;
+
+        if (decodedBit == 1) {
+            decVal += calcPower(2, exp);
+        }
+        exp--;
+
+        if (bitCounter == 8) {
+            message[messIndex++] = (char) decVal;
+            decVal = 0;
+            exp = 7;
+            bitCounter = 0;
+        }
       }
     }
   }
 
-  // int count = 0; // count length of decodedBits
-  // int decVal = 0;
-  // int line = 0;
-  // unsigned int mask = 0x1;
-
-  // for (int i = 0; i < h; i++) {
-  //   for (int j = 0; j < w; j++) {
-  //     for (int k = 0; k < 3; k++) {
-  //       int decodedBit = mask & pixels[i*w + j].colors[k];
-  //       if (decodedBit == 1) {
-  //         decVal += (1 << (7 - count));
-  //       }
-  //       count++;
-  //       if (count == 8) {
-  //         if (decVal < 127) {
-  //           if (decVal == 10) { printf ("line %d: ", line++);}
-  //          printf("%c", (char) decVal);
-  //         }
-  //         decVal = 0;
-  //         count = 0;
-  //       }
-  //     }
-  //   }
-  // }
-
-  printf("Reading %s with width %d and height %d\n", argv[1], w, h);
-  genResult(&numBits, decodedBits);
+  printf("%s \n", message);
 
   free(pixels);
   pixels = NULL;
-  free(decodedBits);
-  decodedBits = NULL;
+  free(message);
+  message = NULL;
 
   return 0;
 }
