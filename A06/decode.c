@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
     }
   }
 
-  printf("%s \n", message);
+  printf("%s", message);
 
   free(pixels);
   pixels = NULL;
@@ -68,4 +68,3 @@ int main(int argc, char** argv) {
 
   return 0;
 }
-

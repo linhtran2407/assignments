@@ -52,9 +52,24 @@ struct ppm_pixel* read_ppm(const char* filename, int* w, int* h) {
   return pixels;
 }
 
-// TODO: Implement this function
-// Feel free to change the function signature if you prefer to implement an 
-// array of arrays
 extern void write_ppm(const char* filename, struct ppm_pixel* pxs, int w, int h) {
+  FILE* fp = fopen(filename, "wb");
+  if (fp == NULL) {
+    printf("Error: unable to open file");
+    return;
+  }
+  
+  printf("Writing file %s \n", filename);
+  // header
+  fprintf(fp, "P6\n# This is comment\n%d %d\n255\n", w, h);
 
+  // write each color
+  for (int i = 0; i < h; i++) {
+    for (int j = 0; j < w; j++) {
+      struct ppm_pixel currPixel = pxs[i*w + j];
+      fwrite(currPixel.colors, 1, 3, fp);
+    }
+  }
+
+  fclose(fp); 
 }
