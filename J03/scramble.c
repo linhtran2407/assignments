@@ -48,15 +48,10 @@ int main() {
   printf("Enter a phrase: \n");
   scanf("%[^\n]s", msg);
 	char letter;
-	int n = 0;
 	printf("Scramble: ");
 	for (int i = 0; i < strlen(msg); i++) {
 		letter = msg[i];
 		char2bin(letter);
-		n++;
-		if (n == 14) {
-			n = 0;
-		}
 	}
 
 	printf("\n");
