@@ -45,11 +45,11 @@ void char2bin (char c){
 
 int main() {
 	char msg[1024];
-  printf("Enter a word: \n");
+  printf("Enter a phrase: \n");
   scanf("%[^\n]s", msg);
 	char letter;
 	int n = 0;
-	
+	printf("Scramble: ");
 	for (int i = 0; i < strlen(msg); i++) {
 		letter = msg[i];
 		char2bin(letter);
