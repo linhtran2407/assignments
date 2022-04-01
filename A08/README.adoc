@@ -1,10 +1,12 @@
 = Hardware specifications
 
 Where did your run your tests? A laptop, or goldengate?
+
 *Goldengate*
 
 What are the performance specifications of the machine: number and speed of
 processors, size of RAM? (use `lscpu` and `free -m`)
+
 *64 CPUs, speed: 3.40GHz, size of RAM: 95320 megabytes*
 
 = Allocations
@@ -12,6 +14,7 @@ processors, size of RAM? (use `lscpu` and `free -m`)
 In `simple.c`, where does the increase in 1040 bytes come from?
 Why is the value 1040 bytes?
 
+*1040 bytes comes from calling printf. printf calls malloc internally to allocate a buffer for stdout. if there is no string malloc’d it will allocate a new string memory of size 1040 bytes*
 
 How many bytes does `mylloc_list.c` allocate when the program ends? Explain why
 this amount makes sense.
