@@ -1,11 +1,11 @@
 = Hardware specifications
 
 Where did your run your tests? A laptop, or goldengate?
-Goldengate
+*Goldengate*
 
 What are the performance specifications of the machine: number and speed of
 processors, size of RAM? (use `lscpu` and `free -m`)
-
+*64 CPUs, speed: 3.40GHz, size of RAM: 95320 megabytes*
 
 = Allocations
 
