@@ -8,6 +8,7 @@ What are the performance specifications of the machine: number and speed of
 processors, size of RAM? (use `lscpu` and `free -m`)
 
 *Number and speed of processors:*
+
 CPU(s):                          64
 
 Model name:                      Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz
@@ -18,7 +19,8 @@ CPU max MHz:                     4100.0000
 
 CPU min MHz:                     1200.0000 
 
-size of RAM:  
+
+*size of RAM:*
 
               total        used        free      shared  buff/cache   available  
 Mem:          95320       11217       70958           4       13145       83268  
@@ -36,8 +38,81 @@ the allocated memory has size of 1040 bytes*
 How many bytes does `mylloc_list.c` allocate when the program ends? Explain why
 this amount makes sense.
 
-
+*116 bytes. This is because we malloc and free 10 times, so the same block of memory is reused 10 times. 
+At the end of the program, that one memory block is still there and has the size of 116 bytes. This size comes from 
+100 bytes that we pass into malloc(), plus 16 bytes for the size of struc chunk*
 
 
 = Fragementation
 
+1. Fragementation is when the free memory space is broken into little pieces so the size is too small to 
+use and memory blocks remains unused.
+
+Internal fragmentation: The assigned memory block is bigger than the size of memory in use (bigger than what weed), 
+which causes the remaining of the memory block to be left unused.
+	
+External fragmentation: The total memory space is enough for the request of memory, but it is not contiguous so cannot be used.
+
+2. Output of benchmark1
+
+The initial top of the heap is 0x7f30af202000.
+
+0
+
+The current top of the heap is 0x7f30af20bc68.
+
+Increased by 39 (0x27) byte
+
+1
+
+The current top of the heap is 0x7f30af20bc68.
+
+Increased by 39 (0x27) byte
+
+2
+
+The current top of the heap is 0x7f30af20bc68.
+
+Increased by 39 (0x27) byte
+
+3
+
+The current top of the heap is 0x7f30af20bc68.
+
+Increased by 39 (0x27) byte
+
+4
+
+The current top of the heap is 0x7f30af20bc68.
+
+Increased by 39 (0x27) byte
+
+5
+
+The current top of the heap is 0x7f30af20bc68.
+
+Increased by 39 (0x27) byte
+
+6
+
+The current top of the heap is 0x7f30af20bc68.
+
+Increased by 39 (0x27) byte
+
+7
+
+The current top of the heap is 0x7f30af20bc68.
+
+Increased by 39 (0x27) byte
+
+8
+
+The current top of the heap is 0x7f30af20bc68.
+
+Increased by 39 (0x27) byte
+
+9
+
+The current top of the heap is 0x7f30af20bc68.
+
+Increased by 39 (0x27) byte
