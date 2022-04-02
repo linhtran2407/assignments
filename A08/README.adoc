@@ -8,11 +8,15 @@ What are the performance specifications of the machine: number and speed of
 processors, size of RAM? (use `lscpu` and `free -m`)
 
 *Number and speed of processors:*
-CPU(s):                          64\n
-Model name:                      Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz\n
-CPU MHz:                         1200.049  \n
-CPU max MHz:                     4100.0000  \n
-CPU min MHz:                     1200.0000 \n
+CPU(s):                          64
+
+Model name:                      Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz
+
+CPU MHz:                         1200.049  
+
+CPU max MHz:                     4100.0000  
+
+CPU min MHz:                     1200.0000 
 
 size of RAM:  
 
