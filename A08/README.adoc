@@ -7,19 +7,19 @@ Where did your run your tests? A laptop, or goldengate?
 What are the performance specifications of the machine: number and speed of
 processors, size of RAM? (use `lscpu` and `free -m`)
 
-*Number and speed of processors:  
-CPU(s):                          64  
-Model name:                      Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz  
-CPU MHz:                         1200.049  
-CPU max MHz:                     4100.0000  
-CPU min MHz:                     1200.0000 
+*Number and speed of processors:  *
+CPU(s):                          64\  
+Model name:                      Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz\
+CPU MHz:                         1200.049  \
+CPU max MHz:                     4100.0000  \
+CPU min MHz:                     1200.0000 \
 
 size of RAM:  
 
               total        used        free      shared  buff/cache   available  
 Mem:          95320       11217       70958           4       13145       83268  
 Swap:          8191        1167        7024  
-*
+
 
 = Allocations
 
