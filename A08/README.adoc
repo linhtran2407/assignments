@@ -7,17 +7,32 @@ Where did your run your tests? A laptop, or goldengate?
 What are the performance specifications of the machine: number and speed of
 processors, size of RAM? (use `lscpu` and `free -m`)
 
-*64 CPUs, speed: 3.40GHz, size of RAM: 95320 megabytes*
+*Number and speed of processors:  
+CPU(s):                          64  
+Model name:                      Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz  
+CPU MHz:                         1200.049  
+CPU max MHz:                     4100.0000  
+CPU min MHz:                     1200.0000 
+
+size of RAM:  
+
+              total        used        free      shared  buff/cache   available  
+Mem:          95320       11217       70958           4       13145       83268  
+Swap:          8191        1167        7024  
+*
 
 = Allocations
 
 In `simple.c`, where does the increase in 1040 bytes come from?
 Why is the value 1040 bytes?
 
-*1040 bytes comes from calling printf. printf calls malloc internally to allocate a buffer for stdout. if there is no string malloc’d it will allocate a new string memory of size 1040 bytes*
+*1040 bytes comes from calling printf. printf calls malloc internally to allocate a buffer for stdout. 
+the allocated memory has size of 1040 bytes*
 
 How many bytes does `mylloc_list.c` allocate when the program ends? Explain why
 this amount makes sense.
+
+
 
 
 = Fragementation
