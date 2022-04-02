@@ -45,7 +45,8 @@ At the end of the program, that one memory block is still there and has the size
 
 = Fragementation
 
-1. Fragementation is when the free memory space is broken into little pieces so the size is too small to 
+*1.* +
+Fragementation is when the free memory space is broken into little pieces so the size is too small to 
 use and memory blocks remains unused.
 
 Internal fragmentation: The assigned memory block is bigger than the size of memory in use (bigger than what weed), 
@@ -53,12 +54,10 @@ which causes the remaining of the memory block to be left unused.
 	
 External fragmentation: The total memory space is enough for the request of memory, but it is not contiguous so cannot be used.
 
-2. Output of benchmark1
+*2. Output of benchmark1*
 
-The initial top of the heap is 0x7fdcabc16000.
-
-0
-
+The initial top of the heap is 0x7fdcabc16000. +
+0 +
 The current top of the heap is 0x7fdcabc1fc68.
 
 Increased by 39 (0x27) byte
