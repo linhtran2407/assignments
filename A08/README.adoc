@@ -45,7 +45,7 @@ At the end of the program, that one memory block is still there and has the size
 
 = Fragementation
 
-*1.* +
+*1. Answer:* +
 Fragementation is when the free memory space is broken into little pieces so the size is too small to 
 use and memory blocks remains unused.
 
@@ -58,76 +58,48 @@ External fragmentation: The total memory space is enough for the request of memo
 
 The initial top of the heap is 0x7fdcabc16000. +
 0 +
-The current top of the heap is 0x7fdcabc1fc68.
+The current top of the heap is 0x7fdcabc1fc68. +
+Increased by 39 (0x27) byte +
+1 +
+The current top of the heap is 0x7fdcabc1fc68. +
+Increased by 39 (0x27) byte +
+2 +
+The current top of the heap is 0x7fdcabc1fc68. +
+Increased by 39 (0x27) byte +
+3 +
+The current top of the heap is 0x7fdcabc1fc68. +
+Increased by 39 (0x27) byte +
+4 +
+The current top of the heap is 0x7fdcabc1fc68. +
+Increased by 39 (0x27) byte +
+5 +
+The current top of the heap is 0x7fdcabc1fc68. +
+Increased by 39 (0x27) byte +
+6 +
+The current top of the heap is 0x7fdcabc1fc68. +
+Increased by 39 (0x27) byte +
+7 +
+The current top of the heap is 0x7fdcabc1fc68. +
+Increased by 39 (0x27) byte +
+8 +
+The current top of the heap is 0x7fdcabc1fc68. +
+Increased by 39 (0x27) byte +
+9 +
+The current top of the heap is 0x7fdcabc1fc68. +
+Increased by 39 (0x27) byte +
 
-Increased by 39 (0x27) byte
+*3. Output of benchmark2*
 
-1
-
-The current top of the heap is 0x7fdcabc1fc68.
-
-Increased by 39 (0x27) byte
-
-2
-
-The current top of the heap is 0x7fdcabc1fc68.
-
-Increased by 39 (0x27) byte
-
-3
-
-The current top of the heap is 0x7fdcabc1fc68.
-
-Increased by 39 (0x27) byte
-
-4
-
-The current top of the heap is 0x7fdcabc1fc68.
-
-Increased by 39 (0x27) byte
-
-5
-
-The current top of the heap is 0x7fdcabc1fc68.
-
-Increased by 39 (0x27) byte
-
-6
-
-The current top of the heap is 0x7fdcabc1fc68.
-
-Increased by 39 (0x27) byte
-
-7
-
-The current top of the heap is 0x7fdcabc1fc68.
-
-Increased by 39 (0x27) byte
-
-8
-
-The current top of the heap is 0x7fdcabc1fc68.
-
-Increased by 39 (0x27) byte
-
-9
-
-The current top of the heap is 0x7fdcabc1fc68.
-
-Increased by 39 (0x27) byte
-
-3. Output of benchmark2
-
-The initial top of the heap is 0x7f3b127c4000.
-Total blocks: 161        Free: 103       Used: 58
-Internal unused: total: 178682   average: 3080.724121    smallest: 511   largest: 3979
-External unused: total: 144345   average: 1401.407715    smallest: 10    largest: 3984
-0
-The current top of the heap is 0x7f3b1281a527.
-Increased by 345 (0x159) Kbyte
-Total blocks: 167        Free: 113       Used: 54
-Internal unused: total: 159454   average: 2952.851807    smallest: 107   largest: 3991
-External unused: total: 177549   average: 1571.230103    smallest: 10    largest: 3984
+The initial top of the heap is 0x7f3b127c4000. +
+Total blocks: 161        Free: 103       Used: 58 +
+Internal unused: total: 178682   average: 3080.724121    smallest: 511   largest: 3979 +
+External unused: total: 144345   average: 1401.407715    smallest: 10    largest: 3984 +
+0 +
+The current top of the heap is 0x7f3b1281a527. +
+Increased by 345 (0x159) Kbyte +
+Total blocks: 167        Free: 113       Used: 54 +
+Internal unused: total: 159454   average: 2952.851807    smallest: 107   largest: 3991 +
+External unused: total: 177549   average: 1571.230103    smallest: 10    largest: 3984 +
 1
 The current top of the heap is 0x7f3b12820327.
 Increased by 368 (0x170) Kbyte
