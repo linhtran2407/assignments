@@ -2,8 +2,30 @@
 
 Where did your run your tests? A laptop, or goldengate?
 
+*My laptop*
+
 What are the performance specifications of the machine: number and speed of
 processors, size of RAM? (use `lscpu` and `free -m`)
+
+*Number and speed of processors:*
+
+CPU(s):                          64
+
+Model name:                      Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz
+
+CPU MHz:                         1200.049  
+
+CPU max MHz:                     4100.0000  
+
+CPU min MHz:                     1200.0000 
+
+
+*size of RAM:*
+
+              total        used        free      shared  buff/cache   available  
+Mem:          95320       11217       70958           4       13145       83268  
+Swap:          8191        1167        7024  
+
 
 = Single-process mandelbrot
 
@@ -13,11 +35,11 @@ the amount of time it takes to compute each image.
 [cols="1,1"]
 !===
 | Size | Time (s) 
-| 100 | todo
-| 400 | todo
-| 800 | todo
-| 1000 | todo
-| 2000 | todo
+| 100 | 0.045658
+| 400 | 0.352762
+| 800 | 1.4095
+| 1000 | 2.18348
+| 2000 | 8.64314
 !===
 
 = Multi-process mandelbrot
