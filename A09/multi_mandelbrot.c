@@ -32,8 +32,8 @@ void computeImg (struct ppm_pixel* pallet, struct ppm_pixel* pixels, int size, f
   int iter;
   struct ppm_pixel color;
 
-  for (int row = startRow; row < endRow; row++) {
-    for (int col = startCol; col < endCol; col++) {
+  for (int col = startCol; col < endCol; col++) {
+    for (int row = startRow; row < endRow; row++) {
       xfrac = (float) row / (size*2);
       yfrac = (float) col / (size*2);
       x0 = xmin + xfrac * (xmax - xmin);
@@ -57,7 +57,7 @@ void computeImg (struct ppm_pixel* pallet, struct ppm_pixel* pixels, int size, f
         color.green = 0;
       }
 
-      pixels[row*size*2 + col] = color;
+      pixels[col*size*2 + row] = color;
     }
   }     
 }
