@@ -123,14 +123,26 @@ int main(int argc, char* argv[]) {
     if (pid == 0) {
       if (i == 0) {
         computeImg(pallet, pixels, size/2, xmin, xmax, ymin, ymax, maxIterations, rowColRange[0][0], rowColRange[0][1], rowColRange[0][2], rowColRange[0][3]);
+        free(pallet);
+        pallet = NULL;
+        exit(0);
       } else if (i == 1) {
         computeImg(pallet, pixels, size/2, xmin, xmax, ymin, ymax, maxIterations, rowColRange[1][0], rowColRange[1][1], rowColRange[1][2], rowColRange[1][3]);
+        free(pallet);
+        pallet = NULL;
+        exit(0);
       } else if (i == 2) {
         computeImg(pallet, pixels, size/2, xmin, xmax, ymin, ymax, maxIterations, rowColRange[2][0], rowColRange[2][1], rowColRange[2][2], rowColRange[2][3]);
+        free(pallet);
+        pallet = NULL;
+        exit(0);
       } else {
         computeImg(pallet, pixels, size/2, xmin, xmax, ymin, ymax, maxIterations, rowColRange[3][0], rowColRange[3][1], rowColRange[3][2], rowColRange[3][3]);
+        free(pallet);
+        pallet = NULL;
+        exit(0);
       }
-      exit(0);
+      // exit(0);
     } else {
       printf("Launched child process: %d\n", pid);
       printf("%d) Sub-image block: cols (%d, %d) to rows (%d, %d) \n", pid, rowColRange[i][2], rowColRange[i][3], rowColRange[i][0], rowColRange[i][1]);
