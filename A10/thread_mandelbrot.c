@@ -150,8 +150,12 @@ int main(int argc, char* argv[]) {
     printf("Thread %d) sub-image block: cols (%d, %d) to rows (%d, %d)\n", i, rowColRange[i][2], rowColRange[i][3], rowColRange[i][0], rowColRange[i][1]);
   }
 
+  int threadResult = 1;
   for (int i = 0; i < 4; i++) {
-    pthread_join(threads[i], NULL);
+    threadResult = pthread_join(threads[i], NULL);
+    if (threadResult == 0) {
+      printf("Thread %d) finished\n", i);
+    }
   }
 
   gettimeofday(&tend, NULL);
@@ -160,7 +164,7 @@ int main(int argc, char* argv[]) {
 
   // create file name and write the image
   char filename[128] = "";
-  snprintf(filename, 128, "multi-mandelbrot-%d-%ld.ppm", size, time(0));
+  snprintf(filename, 128, "mandelbrot-%d-%ld.ppm", size, time(0));
   write_ppm(filename, pixels, size, size);
 
   free(pallet);
