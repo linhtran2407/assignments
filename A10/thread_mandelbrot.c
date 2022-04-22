@@ -43,7 +43,6 @@ struct ppm_pixel * genPalette (int maxIterations) {
   return pallet;
 }
 
-// void compute (struct ppm_pixel* pallet, struct ppm_pixel* pixels, int size, float xmin, float xmax, float ymin, float ymax, int maxIterations, int startRow, int endRow, int startCol, int endCol) {
 void *compute (void *userdata) {
   struct thread_data *data = (struct thread_data *) userdata;
   float xfrac, yfrac, x0, y0, x, y, xtmp;
